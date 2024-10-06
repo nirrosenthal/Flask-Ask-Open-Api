@@ -9,11 +9,13 @@ def client():
     with app.test_client() as client:
         yield client
 
+
 def test_ask__sanity_respose__expected_answer_question_response_code_200(client):
-    data = {"question": "What is Flask?"}
+    question = "what do i get from this post request?"
+    data = {"question": question}
     response = client.post('/ask', json=data)
     assert response.status_code == 200
     json_data = response.get_json()
-    assert json_data["question"] == "what do i get?"
+    assert json_data["question"] == question
     # need to mock openAI to get answer from openAI
-    assert json_data["answer"] == "test answer"
+    assert json_data["answer"] == "the question and answer to it"
