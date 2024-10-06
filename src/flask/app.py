@@ -8,9 +8,10 @@ def ask():
     question = ask_data.get("question")
     answer = "defualt answer until openAI feature"
     response = {
-        question: question,
-        answer: answer
+        "question": question,
+        "answer": answer
     }
+    print(response)
     
     return jsonify(response), 200
 
