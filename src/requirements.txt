@@ -5,3 +5,5 @@ pytest
 pytest-Flask
 mockito
 python-dotenv==0.21.1
+alembic==1.12.1
+psycopg2-binary==2.9.9
