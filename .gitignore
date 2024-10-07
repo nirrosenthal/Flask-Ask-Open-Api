@@ -10,3 +10,5 @@ src/openai_api/__pycache__/__init__.cpython-37.pyc
 src/openai_api/__pycache__/client.cpython-37.pyc
 src/openai_api/__pycache__/openai_ask_question.cpython-37.pyc
 src/openai_api/.env
+src/flask_app/__pycache__/app.cpython-37.pyc
+src/flask_app/__pycache__/__init__.cpython-37.pyc

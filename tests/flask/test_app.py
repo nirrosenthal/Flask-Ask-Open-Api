@@ -1,7 +1,7 @@
 import pytest
 from flask import json
-from src.flask.app import app
-import src.flask.app
+from src.flask_app.app import app
+import src.flask_app.app
 from mockito import when, verify, mock
 
 
@@ -15,7 +15,7 @@ def flaskClient():
 def openAIAskQuestion(request):
     question, answer = request.param    
     mock_openAI = mock({"question": question, "answer": answer})
-    when(src.flask.app).OpenAIAskQuestion(question).thenReturn(mock_openAI)
+    when(src.flask_app.app).OpenAIAskQuestion(question).thenReturn(mock_openAI)
     return mock_openAI
 
 
