@@ -1,0 +1,18 @@
+services:
+  database:
+    image: postgres
+    ports:
+      - 5432:5432
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+  flask_server:
+    image: flask_test_image
+    restart: always
+    depends_on:
+      - database
+    ports:
+      - 5000:5000
+

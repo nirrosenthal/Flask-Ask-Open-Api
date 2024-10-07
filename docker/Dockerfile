@@ -7,11 +7,10 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-COPY src/ ./src/
+COPY ../src/ ./src/
 
 RUN pip install --no-cache-dir -r src/requirements.txt
 
 EXPOSE 5000
 
 CMD ["flask", "--app", "src/flask_app/app.py", "run", "--host", "0.0.0.0"]
-
