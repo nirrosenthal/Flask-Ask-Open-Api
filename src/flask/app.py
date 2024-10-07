@@ -1,15 +1,16 @@
+
 from flask import Flask, request, jsonify
+from src.openai_api.openai_ask_question import OpenAIAskQuestion
 
 app = Flask(__name__)
 
 @app.route("/ask", methods=["POST"])
 def ask():
-    ask_data = request.get_json()
-    question = ask_data.get("question")
-    answer = "defualt answer until openAI feature"
+    open_ai = OpenAIAskQuestion(request.get_json().get("question"))
+    open_ai.ask()
     response = {
-        "question": question,
-        "answer": answer
+        "question": open_ai.question,
+        "answer": open_ai.answer
     }
     print(response)
     

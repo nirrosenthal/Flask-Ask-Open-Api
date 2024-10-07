@@ -5,7 +5,6 @@ class OpenAIAskQuestion(OpenAIClient):
     def __init__(self, question: str):
         super().__init__()
         self._question = question
-        self._answer = ""
 
     @property
     def question(self)->str:
@@ -15,7 +14,7 @@ class OpenAIAskQuestion(OpenAIClient):
     def answer(self)->str:
         return self._answer
     
-    def ask(self)->None:
+    def ask(self)->str:
         # add an empty question clause
         if self._question=="":
             return ""
