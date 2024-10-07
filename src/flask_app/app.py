@@ -3,9 +3,10 @@ from flask import Flask, request, jsonify
 from src.openai_api.openai_ask_question import OpenAIAskQuestion
 
 app = Flask(__name__)
-
+PORT = 5000
 @app.route("/ask", methods=["POST"])
 def ask():
+    print("Ask post request received")
     open_ai = OpenAIAskQuestion(request.get_json().get("question"))
     open_ai.ask()
     response = {
@@ -17,4 +18,4 @@ def ask():
     return jsonify(response), 200
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True,host="0.0.0.0", port=PORT)
