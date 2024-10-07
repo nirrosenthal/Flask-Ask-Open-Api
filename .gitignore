@@ -6,3 +6,7 @@ src/__pycache__/__init__.cpython-37.pyc
 tests/flask/__pycache__/__init__.cpython-37.pyc
 tests/flask/__pycache__/test_app.cpython-37-pytest-7.4.4.pyc
 __pycache__/__init__.cpython-37.pyc
+src/openai_api/__pycache__/__init__.cpython-37.pyc
+src/openai_api/__pycache__/client.cpython-37.pyc
+src/openai_api/__pycache__/openai_ask_question.cpython-37.pyc
+src/openai_api/.env
