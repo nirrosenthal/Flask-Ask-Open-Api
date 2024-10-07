@@ -6,10 +6,10 @@ import os
 # Database connection parameters
 username = os.getenv("POSTGRES_USER")
 password = os.getenv("POSTGRES_PASSWORD")
-host = 'localhost'
+host = 'localhost'#'localhost'
 port = os.getenv("POSTGRES_PORT")
 database = os.getenv("POSTGRES_DB")
-connection_url = f"postgresql://{username}:{password}@{host}:{port}/{database}"
+connection_url = f"postgresql+psycopg2://{username}:{password}@{host}:{port}/{database}"
 
 class DatabaseEngineSingleton:
     __instance = None
@@ -19,7 +19,7 @@ class DatabaseEngineSingleton:
             cls.__instance = \
                 super(DatabaseEngineSingleton,cls).__new__(cls)
             cls.__instance._connection_url = connection_url
-            cls.__instance._engine = create_engine(cls.__instance.connection_string)   
+            cls.__instance._engine = create_engine(connection_url)   
             cls.__instance._session_factory = sessionmaker(bind=cls.__instance._engine)
         return cls.__instance
     
@@ -29,7 +29,7 @@ class DatabaseEngineSingleton:
 
     @property
     def connection_url(cls)->str:
-        return cls.__instance.connection_url
+        return cls.__instance._connection_url
   
 
     def session(cls):
@@ -37,5 +37,6 @@ class DatabaseEngineSingleton:
     
 if __name__ == "__main__":
     db = DatabaseEngineSingleton()
+    print(connection_url)
     with db.session() as Session:
         print("Session creation successful")
