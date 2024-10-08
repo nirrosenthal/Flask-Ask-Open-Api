@@ -1,14 +1,5 @@
+__pycache__/
 venv
-src/flask/__pycache__
 post_testing.py
-tests/__pycache__/__init__.cpython-37.pyc
-src/__pycache__/__init__.cpython-37.pyc
-tests/flask/__pycache__/__init__.cpython-37.pyc
-tests/flask/__pycache__/test_app.cpython-37-pytest-7.4.4.pyc
-__pycache__/__init__.cpython-37.pyc
-src/openai_api/__pycache__/__init__.cpython-37.pyc
-src/openai_api/__pycache__/client.cpython-37.pyc
-src/openai_api/__pycache__/openai_ask_question.cpython-37.pyc
 src/openai_api/.env
-src/flask_app/__pycache__/app.cpython-37.pyc
-src/flask_app/__pycache__/__init__.cpython-37.pyc
+alembic/script.py.mako
