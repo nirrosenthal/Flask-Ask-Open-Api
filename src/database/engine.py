@@ -1,15 +1,9 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import os
+from src.database.model import QuestionRequestModel
 
-
-# Database connection parameters
-username = os.getenv("POSTGRES_USER")
-password = os.getenv("POSTGRES_PASSWORD")
-host = 'localhost'#'localhost'
-port = os.getenv("POSTGRES_PORT")
-database = os.getenv("POSTGRES_DB")
-connection_url = f"postgresql+psycopg2://{username}:{password}@{host}:{port}/{database}"
+connection_url = os.getenv("DATABASE_URL")
 
 class DatabaseEngineSingleton:
     __instance = None
@@ -20,7 +14,7 @@ class DatabaseEngineSingleton:
                 super(DatabaseEngineSingleton,cls).__new__(cls)
             cls.__instance._connection_url = connection_url
             cls.__instance._engine = create_engine(connection_url)   
-            cls.__instance._session_factory = sessionmaker(bind=cls.__instance._engine)
+            cls.__instance._session_maker = sessionmaker(bind=cls.__instance._engine)
         return cls.__instance
     
     @property
@@ -31,12 +25,21 @@ class DatabaseEngineSingleton:
     def connection_url(cls)->str:
         return cls.__instance._connection_url
   
+    
+    def add_question_request(cls,question:str, answer:str):
+        record = QuestionRequestModel(question=question, answer=answer)
+        
+        with cls.__instance._session_maker() as session:
+            session.add(record)
+            session.commit()
+        with cls.__instance._session_maker() as session:
+            records =session.query(QuestionRequestModel).all()
 
-    def session(cls):
-        return cls.__instance._session_factory()
+
     
 if __name__ == "__main__":
     db = DatabaseEngineSingleton()
     print(connection_url)
-    with db.session() as Session:
-        print("Session creation successful")
+
+    db.add_question_request("test: what is my name?", "test: nir the great")
+        
