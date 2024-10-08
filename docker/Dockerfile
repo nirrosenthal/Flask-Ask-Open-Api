@@ -8,8 +8,8 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 COPY ../src/ ./src/
-COPY ../alembic/ ./alembic/
-COPY alembic.ini .
+COPY ../migration/alembic/ ./alembic/
+COPY ../migration/alembic.ini .
 COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
