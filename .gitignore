@@ -1,5 +1,4 @@
 __pycache__/
 venv
 post_testing.py
-src/openai_api/.env
 alembic/script.py.mako

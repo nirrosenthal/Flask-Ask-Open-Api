@@ -5,13 +5,13 @@ from src.database.model import QuestionRequestModel
 
 connection_url = os.getenv("DATABASE_URL")
 
-class DatabaseEngineSingleton:
+class DatabaseEngine:
     __instance = None
 
     def __new__(cls):
-        if DatabaseEngineSingleton.__instance is None:
+        if DatabaseEngine.__instance is None:
             cls.__instance = \
-                super(DatabaseEngineSingleton,cls).__new__(cls)
+                super(DatabaseEngine,cls).__new__(cls)
             cls.__instance._connection_url = connection_url
             cls.__instance._engine = create_engine(connection_url)   
             cls.__instance._session_maker = sessionmaker(bind=cls.__instance._engine)
@@ -38,8 +38,7 @@ class DatabaseEngineSingleton:
 
     
 if __name__ == "__main__":
-    db = DatabaseEngineSingleton()
+    db = DatabaseEngine()
     print(connection_url)
-
     db.add_question_request("test: what is my name?", "test: nir the great")
         

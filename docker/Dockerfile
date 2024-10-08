@@ -8,9 +8,10 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 COPY ../src/ ./src/
+COPY ../alembic/ ./alembic/
+COPY alembic.ini .
+COPY requirements.txt .
 
-RUN pip install --no-cache-dir -r src/requirements.txt
-
-EXPOSE 5000
+RUN pip install --no-cache-dir -r requirements.txt
 
 CMD ["flask", "--app", "src/flask_app/app.py", "run", "--host", "0.0.0.0"]
