@@ -2,8 +2,12 @@
 from flask import Flask, request, jsonify
 from src.openai_api.openai_ask_question import OpenAIAskQuestion
 from src.database.engine import DatabaseEngine
+import os
+
 app = Flask(__name__)
-PORT = 5000
+
+PORT = os.environ.get("FLASK_PORT")
+
 @app.route("/ask", methods=["POST"])
 def ask():
     print("Ask post request received")
