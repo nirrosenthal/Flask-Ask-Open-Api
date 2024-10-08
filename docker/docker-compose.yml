@@ -20,5 +20,5 @@ services:
     environment:
       DATABASE_URL: ${DATABASE_URL}
       OPENAI_API_KEY: ${OPENAI_API_KEY}
-    # command: 
-# ["flask", "--app", "src/flask_app/app.py", "run", "--host", "0.0.0.0"]
+    command: >
+      sh -c "alembic revision --autogenerate -m 'questions_requests table added' && alembic upgrade heads && flask --app src/flask_app/app.py run --host 0.0.0.0"

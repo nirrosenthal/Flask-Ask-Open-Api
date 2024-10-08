@@ -7,7 +7,7 @@ from sqlalchemy.orm import declarative_base
 QuestionRequestBase = declarative_base()
 
 class QuestionRequestModel(QuestionRequestBase):
-    __tablename__ = 'question_requests'
+    __tablename__ = 'question_request'
     id: Mapped[int] = mapped_column(Integer, primary_key=True) #index=true?
     question: Mapped[str] = mapped_column(Text)
     answer: Mapped[str] = mapped_column(Text)
