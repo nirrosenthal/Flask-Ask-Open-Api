@@ -1,6 +1,13 @@
 # Flask-Ask-Open-Api
 Flask server that exposes an endpoint to ask a question. The server sends the question to an OpenAI API, receives the answer, and saves both the question and the answer in a PostgreSQL database.
 
+## Table Of Contents
+- [Key Features](#key-features)
+- [Installation](#installation)
+- [Configurations](#configurations)
+- [Running](#running)
+- [Request Format](#request-format)
+
 ## Key Features
 - Written in Python
 - Flexible Configurations
@@ -10,10 +17,12 @@ Flask server that exposes an endpoint to ask a question. The server sends the qu
 - OpenAI API usage
 - Docker
 ## Installation
-- Install [Docker](https://docs.docker.com/engine/install/)
-- Clone the project
+1. Install [Docker](https://docs.docker.com/engine/install/)
+2. Clone the project
+3. Create a new [OpenAI Secret Key](https://platform.openai.com/api-keys) (or use your own)
+4. Configure your project with the new OpenAI Secret Key (See Configurations)
 ## Configurations
-###Change Project Startup settings
+### Change Project Startup settings
 1. Go to the directory /docker
 2. Open the .env File
 .env Example:
@@ -28,14 +37,34 @@ POSTGRES_PORT=5432
 DATABASE_URL=postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
 FLASK_PORT=5000
 ```
-3. By Editing the .env file you can change the following settings:
+Editing the .env file to change the following settings:
+- OpenAI API credentials:
+    - OpenAI API Secret Key: 
+```plaintext
+OPENAI_API_KEY={NEW OPENAPI SECRET KEY}
+```
 - Ports:
-    - Flask Port
+    - Flask Server Port
+    ```plaintext
+    FLASK_PORT={NEW PORT}
+    ```
     - Postgres Database Port
+    ```plaintext
+    POSTGRES_PORT={NEW PORT}
+    ```
 - Database Settings:
     - Postgres user
+    ```plaintext
+    POSTGRES_PORT={NEW PORT}
+    ```
     - Postgres password
+    ```plaintext
+    POSTGRES_PORT={NEW PORT}
+    ```
     - Postgres Database name
+    ```plaintext
+    POSTGRES_PORT={NEW PORT}
+    ```
 ## Running
 1. Launch your command-line interface (e.g., CMD or Terminal) in the main project directory
 2. Run docker container
