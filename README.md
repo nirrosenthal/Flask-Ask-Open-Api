@@ -20,7 +20,7 @@ Flask server that exposes an endpoint to ask a question. The server sends the qu
 1. Install [Docker](https://docs.docker.com/engine/install/)
 2. Clone the project
 3. Create a new [OpenAI Secret Key](https://platform.openai.com/api-keys) (or use your own)
-4. Configure your project with the new OpenAI Secret Key (See Configurations)
+4. Configure your project with the new OpenAI Secret Key (See [Configurations](#configurations))
 ## Configurations
 ### Change Project Startup settings
 1. Go to the directory /docker
@@ -71,7 +71,7 @@ OPENAI_API_KEY={NEW OPENAPI SECRET KEY}
 ```bash
 docker-compose -f docker\docker-compose.yml up -d
 ```
-3. Flask server is up and can send post requests (see Request format)
+3. Flask server is up and can send post requests (see [Request Format](#request-format))
 4. Close docker container
 ```bash
 docker-compose -f docker\docker-compose.yml down
