@@ -1,16 +1,20 @@
 
 from flask import Flask, request, jsonify
 from src.openai_api.openai_ask_question import OpenAIAskQuestion
-from src.database.engine import DatabaseEngine
+import os
+from src.database.repository import QuestionAnswerPostgresRepository
+
 app = Flask(__name__)
-PORT = 5000
+
+PORT = os.environ.get("FLASK_PORT")
+
 @app.route("/ask", methods=["POST"])
 def ask():
     print("Ask post request received")
     open_ai = OpenAIAskQuestion(request.get_json().get("question"))
     open_ai.ask()
     print("Open API request successful") #log
-    DatabaseEngine().add_question_request(open_ai.question, open_ai.answer)
+    QuestionAnswerPostgresRepository().add_question_request(open_ai.question, open_ai.answer)
     print("Database addition successful") #log
     response = {
         "question": open_ai.question,
