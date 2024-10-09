@@ -7,7 +7,7 @@ Flask server that exposes an endpoint to ask a question. The server sends the qu
 - Postgres database to save request history
 - Post request service
 - Alembic for database migrations
-- OpenAI API
+- OpenAI API usage
 - Docker
 ## Installation
 - Install [Docker](https://docs.docker.com/engine/install/)
@@ -17,17 +17,17 @@ Flask server that exposes an endpoint to ask a question. The server sends the qu
 - How to change the Posgres database port?
 - How to change Postgres User/Password/database name?
 ## Running
-1. Open powershell/cmd in main Project directory
+1. Launch your command-line interface (e.g., CMD or Terminal) in the main project directory
 2. Run docker container
 ```bash
 docker-compose -f docker\docker-compose.yml up -d
 ```
-3. Flask server is up and can send post requests (see POST requests format)
+3. Flask server is up and can send post requests (see Request format)
 4. Close docker container
 ```bash
 docker-compose -f docker\docker-compose.yml down
 ```
-## POST Request Format
+## Request Format
 
 ### Description
 This endpoint allows you to submit a question and receive a response with an answer
@@ -64,6 +64,6 @@ Example Response Output:
 ```json
 {
     "question": "tell me one thing you like about yourself",
-    "answer": "I appreciate my ability to learn quickly."
+    "answer": "I appreciate my ability to run post requests."
 }
 ```
