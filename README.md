@@ -3,12 +3,13 @@ Flask server that exposes an endpoint to ask a question. The server sends the qu
 
 ## Key Features
 - Written in Python
-- Flexible Setup
+- Flexible Configurations
 - Post request service
+- Alembic for database migrations
 - Docker
 ## Installation
-- Install [Docker](https://docs.docker.com/engine/install/))
-- clone the project
+- Install [Docker](https://docs.docker.com/engine/install/)
+- Clone the project
 ## Configurations
 - How to change the Flask server port?
 - How to change the Posgres database port?
@@ -16,5 +17,9 @@ Flask server that exposes an endpoint to ask a question. The server sends the qu
 ## Running
 - Open powershell/cmd in main Project directory
 - Run docker container:
-  docker-compose -f docker\docker-compose.yml down
+  $docker-compose -f docker\docker-compose.yml up -d
 - Closing Flask server and database
+  $docker-compose -f docker\docker-compose.yml down
+## Usage
+## POST requests format
+
