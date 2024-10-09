@@ -22,4 +22,4 @@ services:
       OPENAI_API_KEY: ${OPENAI_API_KEY}
       FLASK_PORT: ${FLASK_PORT}
     command: >
-      sh -c "alembic revision --autogenerate -m 'questions_requests table added' && alembic upgrade heads && flask --app src/flask_app/app.py run --host 0.0.0.0"
+      sh -c "alembic revision --autogenerate -m 'question_request table added' && alembic upgrade heads && flask --app src/flask_app/app.py run --host 0.0.0.0"
