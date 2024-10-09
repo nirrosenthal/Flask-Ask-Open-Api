@@ -13,9 +13,29 @@ Flask server that exposes an endpoint to ask a question. The server sends the qu
 - Install [Docker](https://docs.docker.com/engine/install/)
 - Clone the project
 ## Configurations
-- How to change the Flask server port?
-- How to change the Posgres database port?
-- How to change Postgres User/Password/database name?
+###Change Project Startup settings
+1. Go to the directory /docker
+2. Open the .env File
+.env Example:
+```plaintext
+OPENAI_API_KEY=open_api_secret_key_example
+FLASK_APP=flask_app/app.py
+POSTGRES_USER=flask_app
+POSTGRES_PASSWORD=flask_app_insert
+POSTGRES_HOST=database
+POSTGRES_DB=question_answer_db
+POSTGRES_PORT=5432
+DATABASE_URL=postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+FLASK_PORT=5000
+```
+3. By Editing the .env file you can change the following settings:
+- Ports:
+    - Flask Port
+    - Postgres Database Port
+- Database Settings:
+    - Postgres user
+    - Postgres password
+    - Postgres Database name
 ## Running
 1. Launch your command-line interface (e.g., CMD or Terminal) in the main project directory
 2. Run docker container
