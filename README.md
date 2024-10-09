@@ -5,6 +5,10 @@ Flask server that exposes an endpoint to ask a question. The server sends the qu
 - install docker
 - clone the project
 ## Configurations
-
+- How to change the Flask server port?
+- How to change the Posgres database port?
+- How to change Postgres User/Password/database name?
 ## Running
-
+- Open powershell/cmd in main Project directory
+- Run docker-compose
+- Closing Flask server and database
